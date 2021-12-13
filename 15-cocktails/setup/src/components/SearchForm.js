@@ -9,21 +9,30 @@ const SearchForm = () => {
     setSearchTerm(refContainer.current.value);
   };
 
+  React.useEffect(() => {
+    refContainer.current.focus();
+  }, []);
+
   return (
-    <form
-      onSubmit={(e) => {
-        e.preventDefault();
-      }}
-    >
-      <label htmlFor="name">search here</label>
-      <input
-        type="text"
-        id="name"
-        name="name"
-        ref={refContainer}
-        onChange={handleChange}
-      />
-    </form>
+    <section className="section search">
+      <form
+        className="search-form"
+        onSubmit={(e) => {
+          e.preventDefault();
+        }}
+      >
+        <div className="form-control">
+          <label htmlFor="name">search here</label>
+          <input
+            type="text"
+            id="name"
+            name="name"
+            ref={refContainer}
+            onChange={handleChange}
+          />
+        </div>
+      </form>
+    </section>
   );
 };
 
